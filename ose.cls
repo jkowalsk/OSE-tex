@@ -59,20 +59,58 @@
 ]
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Title page definition
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{tikz}
+\RequirePackage[skins]{tcolorbox}
+\usetikzlibrary{positioning, calc, shapes.misc}
 
+\newcommand{\usecovercolor}{gray}
+\newcommand{\covercolor}[1]{%
+    \renewcommand{\usecovercolor}{#1}%
+}
+
+\newcommand{\usecoverimage}{img/placeholder.jpg}
+\newcommand{\coverimage}[1]{%
+    \renewcommand{\usecoverimage}{#1}%
+}
+
+\renewcommand{\maketitle}{
+\begin{tikzpicture}[remember picture,overlay, shift=(current page.south west)]
+    \begin{scope}[x={(current page.south east)},y={(current page.north west)}]
+        \node[fill=\usecovercolor,minimum width=\paperwidth, minimum height=\paperheight] at (0.5,0.5) {};
+        \node [
+            color=white,draw,line width=1.5mm,
+            chamfered rectangle,
+            chamfered rectangle angle=30,
+            chamfered rectangle ysep=1cm,
+            minimum width=0.7\paperwidth,
+            minimum height=0.7\paperheight,
+            fill overzoom image=\usecoverimage
+        ] at (0.5, 0.45) {};
+        \node [] at (0.5, 0.9)      {
+            \includegraphics[width=0.6\paperwidth]{img/Designed_For_Use_With_Old-School_Essentials.png}
+        };
+        \node [] at (0.5, 0.05) {
+            \Economica\fontsize{30pt}{37pt}\selectfont\color{white}\bfseries\contour[128]{black}{\@title}
+        };
+    \end{scope}
+\end{tikzpicture}
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% section definition
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage[explicit]{titlesec}
 \RequirePackage{titletoc}
 \RequirePackage{graphicx}
-\RequirePackage{tikz}
+
 \RequirePackage{calc}
 \RequirePackage{xparse}
 \RequirePackage[]{contour}
 \RequirePackage[]{adjustbox}
 
-\usetikzlibrary{positioning}
+
 
 \renewcommand{\tableofcontents}{%
     \chapter*{\contentsname
@@ -286,7 +324,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%	highlight box style
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\RequirePackage{tcolorbox}
 \tcbuselibrary{breakable}
 
 \newtcolorbox{highlight}[1][]{
