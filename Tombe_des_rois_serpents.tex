@@ -1,5 +1,25 @@
 \documentclass{ose}
 \usepackage{stfloats}
+\usepackage{wrapfig}
+
+%%% for HP squares in monster description
+\makeatletter
+\newcount\my@repeat@count
+\newcommand{\repeatit}[3]{%
+  % #1 = number of repetition
+  % #2 = text to repeat
+  % #3 = text in between
+  \begingroup%
+  #2%
+  \my@repeat@count=\@ne%
+  \@whilenum\my@repeat@count<#1\do{#2#3\advance\my@repeat@count\@ne}%
+  \endgroup%
+}
+\newcommand{\oneHD}{{\small$\square\square\square\square\square\square\square\square$ }}
+\newcommand{\hdsquares}[1]{\repeatit{#1}{\oneHD}{}}
+\makeatother
+
+
 
 \title{La tombe des rois serpents}
 
@@ -14,5 +34,8 @@
 \include{introduction}
 \include{niveau_1}
 \include{niveau_2}
+\include{niveau_3}
+
+\include{monstres}
 
 \end{document}
