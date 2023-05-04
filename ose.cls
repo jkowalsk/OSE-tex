@@ -18,7 +18,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% COLORS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\PassOptionsToPackage{usenames,dvipsnames,table}{xcolor} % required to avoid option clash in color and table
+\PassOptionsToPackage{usenames,dvipsnames,x11names,table}{xcolor} % required to avoid option clash in color and table
 \RequirePackage{xcolor}
 
 \definecolor{osegreen}{HTML}{d8e9d2}
@@ -77,6 +77,7 @@
 }
 
 \renewcommand{\maketitle}{
+  \thispagestyle{empty}
 \begin{tikzpicture}[remember picture,overlay, shift=(current page.south west)]
     \begin{scope}[x={(current page.south east)},y={(current page.north west)}]
         \node[fill=\usecovercolor,minimum width=\paperwidth, minimum height=\paperheight] at (0.5,0.5) {};
