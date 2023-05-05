@@ -343,3 +343,20 @@
     title=#1,
     left=2pt,right=2pt,top=0pt,bottom=0pt
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% for HP squares in monster description
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcount\my@repeat@count
+\newcommand{\repeatit}[3]{%
+  % #1 = number of repetition
+  % #2 = text to repeat
+  % #3 = text in between
+  \begingroup%
+  #2%
+  \my@repeat@count=\@ne%
+  \@whilenum\my@repeat@count<#1\do{#2#3\advance\my@repeat@count\@ne}%
+  \endgroup%
+}
+\newcommand{\oneHD}{{\small$\square\square\square\square\square\square\square\square$ }}
+\newcommand{\hdsquares}[1]{\repeatit{#1}{\oneHD}{}}
