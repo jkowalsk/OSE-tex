@@ -358,5 +358,6 @@
   \@whilenum\my@repeat@count<#1\do{#2#3\advance\my@repeat@count\@ne}%
   \endgroup%
 }
-\newcommand{\oneHD}{{\small$\square\square\square\square\square\square\square\square$ }}
+\newcommand{\oneHD}{{$\square$$\square$$\square$$\square$$\square$$\square$$\square$$\square$ }}
+%\newcommand{\oneHD}{\repeatit{8}{$\square$}{}}
 \newcommand{\hdsquares}[1]{\repeatit{#1}{\oneHD}{}}
