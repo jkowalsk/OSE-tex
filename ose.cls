@@ -18,7 +18,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% COLORS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\PassOptionsToPackage{usenames,dvipsnames,table}{xcolor} % required to avoid option clash in color and table
+\PassOptionsToPackage{usenames,dvipsnames,x11names,table}{xcolor} % required to avoid option clash in color and table
 \RequirePackage{xcolor}
 
 \definecolor{osegreen}{HTML}{d8e9d2}
@@ -77,6 +77,7 @@
 }
 
 \renewcommand{\maketitle}{
+  \thispagestyle{empty}
 \begin{tikzpicture}[remember picture,overlay, shift=(current page.south west)]
     \begin{scope}[x={(current page.south east)},y={(current page.north west)}]
         \node[fill=\usecovercolor,minimum width=\paperwidth, minimum height=\paperheight] at (0.5,0.5) {};
@@ -342,3 +343,21 @@
     title=#1,
     left=2pt,right=2pt,top=0pt,bottom=0pt
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% for HP squares in monster description
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcount\my@repeat@count
+\newcommand{\repeatit}[3]{%
+  % #1 = number of repetition
+  % #2 = text to repeat
+  % #3 = text in between
+  \begingroup%
+  #2%
+  \my@repeat@count=\@ne%
+  \@whilenum\my@repeat@count<#1\do{#2#3\advance\my@repeat@count\@ne}%
+  \endgroup%
+}
+\newcommand{\oneHD}{{$\square$$\square$$\square$$\square$$\square$$\square$$\square$$\square$ }}
+%\newcommand{\oneHD}{\repeatit{8}{$\square$}{}}
+\newcommand{\hdsquares}[1]{\repeatit{#1}{\oneHD}{}}
