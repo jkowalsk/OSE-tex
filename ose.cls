@@ -191,15 +191,15 @@
 
 \titleformat{\subsection}[block]
   {\sectionfont\fontsize{16pt}{19pt}\selectfont}
-  {\rlap{\color{osegreen}\rule[-8pt]{\columnwidth}{24pt}}}
+  {}
   {0pt}
-  {~~#1}
+  {\colorbox{osegreen}{\parbox{\columnwidth}{~~#1}}}
 
 \titleformat{name=\subsection,numberless}[block]
   {\sectionfont\fontsize{16pt}{19pt}\selectfont}
-  {\rlap{\color{osegreen}\rule[-8pt]{\columnwidth}{24pt}}}
+  {}
   {0pt}
-  {~~#1}
+  {\colorbox{osegreen}{\parbox{\columnwidth}{~~#1}}}
 
 %\large=12pt (normalsize=10pt)
 \titleformat{\subsubsection}{\large\bfseries}{}{0pt}{#1}
