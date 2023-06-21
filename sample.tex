@@ -19,7 +19,7 @@
 \chapterbackground{img/dunj.png}
 
 \chapter{L'Aventure}
-\section{tables}
+\section{Tables}
 \begin{table}[h]
     \caption*{Sample caption}
     \begin{osetable}{X[c]X[c]}{1}
@@ -31,32 +31,16 @@
     \end{osetable}
 \end{table}
 
-\begin{table}[h]
-    \caption*{Modificateurs d’Intelligence}
-    \begin{osetable}{X[c]X[2,l]X[l]}{1}
-    INT & Langues & Lire/écrire \\
-    3 & Native (hâchée) & Illétré \\
-    4–5 & Native & Illétré \\
-    6–8 & Native & Basique \\
-    9–12 & Native & Lettré \\
-    13–15 & Native + 1 & Lettré \\
-    16–17 & Native +2  & Lettré \\
-    18 & Native + 3 & Lettré \\
+\begin{table*}[h!]
+    \caption{Two column (floats)}
+    \begin{osetable}{X[c]X[c]X[c]X[c]X[c]X[c]X[c]X[c]X[c]}{1}
+        1 & 2 & 3 & 1 & 2 & 3 & 1 & 2 & 3\\
+        4 & 5 & 6  & 1 & 2 & 3 & 1 & 2 & 3\\
+        7 & 8 & 9 & 1 & 2 & 3 & 1 & 2 & 3
     \end{osetable}
-\end{table}
+\end{table*}
 
-\blindtext
-
-
-    \begin{table*}[h!]
-        \caption{Blabla}
-        \begin{osetable}{X[c]X[c]X[c]X[c]X[c]X[c]X[c]X[c]X[c]}{1}
-            1 & 2 & 3 & 1 & 2 & 3 & 1 & 2 & 3\\
-            4 & 5 & 6  & 1 & 2 & 3 & 1 & 2 & 3\\
-            7 & 8 & 9 & 1 & 2 & 3 & 1 & 2 & 3
-        \end{osetable}
-    \end{table*}
-
+\section{Text}
 \subsection{Very Very Very Very Very Very Very long subsection title}
 \blindtext
 
@@ -64,18 +48,14 @@
     Sample highlighted text
 \end{highlight}
 
-\blindtext\blindtext
 
-\begin{highlight}[Jets de sauvegarde dans les différents genres]
-    Les livres de règles spécifiques peuvent spécifier des situations supplémentaires qui nécessitent des lancers des jets de sauvegarde  et quelle catégorie de lancer de sauvegarde
-    doit être utilisée.
-
-    Par exemple, un livre de règles spécifiques peut spécifier que l’exposition aux radiations
-    nécessite une sauvegarde par rapport aux sorts.
+\begin{highlight}[Highlight title]
+    \blindtext
 \end{highlight}
 
-\blindtext\blindtext
 \blindtext
+
+\include{sample_dungeon/monsters.tex}
 
 % generates whole document with dummy lorem ipsum text
 \blinddocument
